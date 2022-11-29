@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>New Customer Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="styles.css" type="text/css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <script src='https://cdn.tailwindcss.com'></script>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="topnav">
+    <a class="primary" href="#home">Home</a>
+    <a href="newClaim.html">New Claim</a>
+    <a href="searchScreen.html">Search Screen</a>
+  </div>
+
+  <div class="grid h-screen place-items-center">
+
+    <div class="md:flex md:items-center mb-6">
+
+      <form class=" md:bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="post">
+        <h2 class="text-xl pt-4"><strong> Customer Claim Form</strong> </h2>
+        <br>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="firstname">
+            First Name
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="firstname" type="text" placeholder="First name">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="surname">
+            Surname
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="surname" type="text" placeholder="Surname">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="surname">
+            Email address
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="surname" type="text" placeholder="Email@example.com">
+        </div>
+        <div class="mb-">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+            Password
+          </label>
+
+          <input
+            class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            id="password" type="password" placeholder="******************">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+            Confirm Password
+          </label>
+
+          <input
+            class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            id="password" type="password" placeholder="******************">
+
+        </div>
+
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="EmailAddress">
+            Email address
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="surname" type="text" placeholder="Email@example.com">
+
+        </div>
+
+        <div class="mb-4 inline-block relative w-64">
+          <label></label>
+          <select
+            class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+            <option class="font-bold">Insurance Type</option>
+            <option>Health</option>
+            <option>Car</option>
+            <option>Boat</option>
+            <option>Home</option>
+            <option>Contents</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+            </svg>
+          </div>
+        </div>
+
+
+        <div class="mb-4 inline-block relative w-64">
+          <label></label>
+          <select
+            class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+            <option class="font-bold">Cover Type</option>
+            <option>Third Party</option>
+            <option>Third party, fire and theft </option>
+            <option>Comprehensive</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+            </svg>
+          </div>
+        </div>
+        <div>
+          <label class="block text-gray-700 text-sm font-bold mb-2">Item value</label>
+          <input type="range" class="form-range" min="0" max="5" id="customRange2">
+
+          <div class="w-full flex justify-between text-xs px-2">
+            <span>£100</span>
+            <span>£500</span>
+            <span>£1000</span>
+            <span>£1500</span>
+            <span>£2000+</span>
+          </div>
+
+          <div class="pb-8">
+            <div class="mb-3 pt-0">
+              <label for="incidentReport" class="block text-gray-700 text-sm font-bold mb-2">Incident Report </label>
+              <input type="text" placeholder="Please enter the details of your claim here:"
+                class="px-3 py-4 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-base border border-slate-300 outline-none focus:outline-none focus:ring w-full" />
+
+            </div>
+            <br>
+            <div class="mb-3 pt-0">
+              <label for="AdditionalNotes" class="block text-gray-700 text-sm font-bold mb-2">Additional notes </label>
+              <input type="text" placeholder="Additional Notes"
+                class="px-3 py-4 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-base border border-slate-300 outline-none focus:outline-none focus:ring w-full" />
+            </div>
+          </div>
+          <br>
+          <br>
+          <br >
+
+
+
+
+          <!-- signup button -->
+          <div class="flex items-center justify-between p-8">
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button">
+              Submit claim
+            </button>
+            <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+              Existing User?
+            </a>
+          </div>
+
+      </form>
+      <p class="text-center text-gray-500 text-xs">
+        &copy;2020 Acme Corp. All rights reserved.
+      </p>
+    </div>
+  </div>
+
+</body>
