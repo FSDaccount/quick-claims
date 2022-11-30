@@ -4,12 +4,12 @@ const ClaimsRow = (props) => {
         <tr>
             <td>{props.id}</td>
             <td>{props.firstName}</td>
-            <td>{props.SurName}</td>
+            <td>{props.surname}</td>
             <td>{props.emailAddress}</td>
-            <td>{props.InsurnceType}</td>
-            <td>{props.CoverType}</td>
+            <td>{props.insurnceType}</td>
+            <td>{props.coverType}</td>
             <td>{props.amount}</td>
-            <td>{props.ClaimInfo}</td>
+            <td>{props.claimInfo}</td>
         </tr>
     )
 }
