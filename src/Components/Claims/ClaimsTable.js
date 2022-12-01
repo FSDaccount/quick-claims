@@ -1,31 +1,63 @@
 import ClaimsRow from "./ClaimsRow";
-import './Transactions.css';
-import { getAllPayments, getAllPaymentsAxiosVersion, getAllPaymentsFetchVersion, getAllPaymentsForCountry, getCountries } from "../../data/DataFunctions";
+import './Claims.css';
+import { getAllClaims } from "./DataFunctions";
+
 import { useEffect, useState } from "react";
 
 
 
 const ClaimsTable = () => {
 
+    const claimData = getAllClaims();
 
+    const [claims,setClaims] = useState([]);
 
+     useEffect(() => {
+        loadClaim();
+     }, []);
+
+     const loadClaim  = () => {
+     setClaims(claimData)
+    };
+
+    // setClaims(claimData)
 
     return (<div>
-        <table className="ClaimsTable">
+        <table  class="table table-bordered text-center table">
             <thead>
-            <tr>Id</tr>
-         <tr>First_name</tr>
-         <tr>Surname</tr>
-         <tr>emailAddress</tr>
-         <tr>insurnceType</tr>
-         <tr>coverType</tr>
-         <tr>Amount</tr>
-         <tr>ClaimInfo</tr>
+                <th>Id</th>
+                <th>First_name</th>
+                <th>Surname</th>
+                <th>emailAddress</th>
+                <th>insuranceType</th>
+                <th>coverType</th>
+                <th>Amount</th>
+                <th>ClaimInfo</th>
+                <th>Claim Status </th>
             </thead>
+            <tbody>
+            {claims.map((claim, index) => {
+                      return (
+                        //if country is selected, display only that country else display all countries
+                        <ClaimsRow
+                        key={index}
+                        id= {claim.id}
+                        First_name={claim.First_name}
+                        surname={claim.surname}
+                        emailAddress={claim.emailAddress}
+                        insuranceType={claim.insuranceType}
+                        coverType={claim.coverType}
+                        amount={claim.amount}
+                        claimInfo={claim.claimInfo}
+                        claimStatus={claim.claimStatus}
+                        />
+                      );
+                    })}  
+            </tbody>
         </table>
     </div>)
 
-  
+
 
 }
 export default ClaimsTable;
