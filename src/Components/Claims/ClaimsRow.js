@@ -1,7 +1,19 @@
 const ClaimsRow = (props) => {
 
+
+    // const navigate = useNavigate();
+
+    // const navigateToIndividualClaim = (props) => {
+    //     let CLaimNumber = props.id;
+    //     console.log("CLaim Number", Claim);
+    //     navigate("/claim-view?policy=")
+    // }
     return (
-        <tr>
+        <tr 
+        className="bg-image hover-overlay ripple shadow-1-strong rounded"
+        data-mdb-ripple-color="light" >
+            {/* onClick={() => navigateToIndividualClaim(props)} */}
+
             <td>{props.id}</td>
             <td>{props.First_name}</td>
             <td>{props.surname}</td>

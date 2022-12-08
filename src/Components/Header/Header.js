@@ -5,7 +5,9 @@ import Search from './Search';
 const Header = () => {
     return (
         <div className="webHeader">
-            <img href="./banner.jpg" class="img-fluid" alt="Responsive image"/>
+            <div>
+            <img src="./banner.jpg" class="img-fluid" alt="Responsive image"/>
+            </div>
             <h1>Quick Claims</h1>
             <Menu />        
         </div>

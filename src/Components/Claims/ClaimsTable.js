@@ -6,15 +6,51 @@ import { useEffect, useState } from "react";
 
 
 
-const ClaimsTable = () => {
-
-    const claimData = getAllClaims();
+const ClaimsTable = (props) => {
 
     const [claims,setClaims] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-     useEffect(() => {
+
+    useEffect(() => {
         loadClaim();
      }, []);
+
+
+
+     useEffect( () => {
+        if(props.searchTerm !== "") {
+            setIsLoading(true);
+            getAllClaims(props.searchTerm)
+                .then( response => {
+                        setClaims(response.data);
+                        setIsLoading(false);
+                } )
+                .catch ( error => {
+                    console.log("something went wrong", error);
+                })
+        }
+
+    }, [props.searchTerm]  );
+
+
+
+    const claimData = getAllClaims();
+    const allclaimStatus = claimData.map(claim => claim.claimStatus);
+    const uniqueClaimStatus = allclaimStatus.filter(
+        (claimStatus,index) => allclaimStatus.indexOf(claimStatus) ===index); 
+    console.log(uniqueClaimStatus);
+
+    
+    //selective variable 
+    const [selectedClaimStatus,setselectedClaimStatus] = useState(uniqueClaimStatus[0])
+
+    const changeClaimStatus = (event) => {
+       const option=  event.target.options.selectedIndex;
+       setselectedClaimStatus(uniqueClaimStatus[option]);    
+    }
+
+
 
      const loadClaim  = () => {
      setClaims(claimData)
@@ -23,6 +59,15 @@ const ClaimsTable = () => {
     // setClaims(claimData)
 
     return (<div>
+      
+        <div  className="ClaimStatusSelector">
+        Select claim Status : 
+        <select onChange={changeClaimStatus}>
+
+        {uniqueClaimStatus.map (claimStatus => <option key={claimStatus} value={claimStatus}>{claimStatus}</option>)}
+        </select>
+        </div>
+
         <table  class="table table-bordered text-center table">
             <thead>
                 <th>Id</th>
@@ -37,7 +82,7 @@ const ClaimsTable = () => {
             </thead>
             <tbody>
             {claims.map((claim, index) => {
-                      return (
+                      return claim.claimStatus === selectedClaimStatus && (
                         //if country is selected, display only that country else display all countries
                         <ClaimsRow
                         key={index}
