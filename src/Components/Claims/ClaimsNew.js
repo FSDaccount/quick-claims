@@ -1,9 +1,9 @@
 
 
-const ClaimsView = () => {
+const ClaimsNew = () => {
     return (
         <div>
-            <div className="topnav">
+            <div class="topnav">
                 <a class="primary" href="#home">Home</a>
                 <a href="newClaim.html">New Claim</a>
                 <a href="searchScreen.html">Search Screen</a>
@@ -160,4 +160,4 @@ const ClaimsView = () => {
                      
       )
 }
-export default ClaimsView;
+export default ClaimsNew;
