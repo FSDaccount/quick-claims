@@ -1,4 +1,4 @@
-import './Search.css';
+import './WebHeader.css';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import ClaimsTable from '../Claims/ClaimsTable';
