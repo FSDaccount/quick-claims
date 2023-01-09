@@ -1,8 +1,10 @@
-import './Claims.css';
 
-const ClaimsView = () => {
+
+const ClaimsNew = (props) => {
+  
+    
     return (
-
+     
         <div className='container-md'>
 
        
@@ -10,7 +12,7 @@ const ClaimsView = () => {
             <div className="ammendForm">
 
                 <form className=" md:bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="post">
-                    <h2 className="text-xl pt-4"><strong> Amend Claim </strong> </h2>
+                    <h2 className="text-xl pt-4"><strong> New Claim </strong> </h2>
                     <br />
 
                     <div class="row">
@@ -95,6 +97,14 @@ const ClaimsView = () => {
                         </select>
                     </div>
 
+                    if (option == Boat ?) {
+                        <div className="mb-4 inline-block relative w-64">
+                            <label>Boat Reg</label>
+                        </div>
+
+                    }
+
+                    conditional rendering goes here 
 
                     <div className="mb-4 inline-block relative w-64">
                         <label></label>
@@ -161,4 +171,4 @@ const ClaimsView = () => {
 
     )
 }
-export default ClaimsView;
+export default ClaimsNew;

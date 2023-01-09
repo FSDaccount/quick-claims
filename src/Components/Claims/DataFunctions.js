@@ -9,6 +9,11 @@ export const getAllClaims = () => {
     ]
 }
 
-// addNewTransaction
+// addNewTransaction = (payment) => {
+//     return axios({ url : "inserturlhere", 
+// method: "POST",
+//         headers: {"Accept" : "application/json", "Content-Type": "application/json"}
+//     data})
+// }
 
 

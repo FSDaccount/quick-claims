@@ -1,7 +1,7 @@
 import './WebHeader.css';
 import Search from './Search';
 import React from "react";
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 const Menu = () => {
   return (<div>
 
@@ -15,20 +15,20 @@ const Menu = () => {
       <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
           <li className="nav-item active">
-            <a className="nav-link active" href="/home"> Home</a>
+            <a className="nav-link active" href="/"> Home</a>
           </li>
           <li className="nav-item active">
             {/* <div className="navbar-nav"> */}
-            <a className="nav-link active" href="/claimsnew">New Claim</a>
+            <Link className="nav-link active" to="/addclaim">New Claim</Link>
           </li>
           <li className="nav-item active">
-            <a className="nav-link active" href="/claim">Search Claim</a>
+            <Link className="nav-link active" href="/claim">Search Claim</Link>
           </li>
           <li className="nav-item active">
-            <a className="nav-link active" href="/claimsview">Amend Claim</a>
+            <Link className="nav-link active" href="/claimsview">Amend Claim</Link>
           </li>
           <li className="nav-item active">
-            <a className="nav-link active" href="/claimstablefull">All Claims </a>
+            <Link className="nav-link active" href="/claimstablefull">All Claims </Link>
           </li>
           {/* </div> */}
         </ul>

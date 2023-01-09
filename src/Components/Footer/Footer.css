@@ -1,0 +1,17 @@
+.footerLogo{
+height: 50px;
+
+}
+
+.imagefluid{
+    max-width: 5%;
+}
+
+.footerWindow{
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(39, 122, 218);
+    color: white;
+}
