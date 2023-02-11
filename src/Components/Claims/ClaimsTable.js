@@ -1,31 +1,43 @@
 import ClaimsRow from "./ClaimsRow";
 import './Claims.css';
-import { getAllClaims } from "./DataFunctions";
+import { getAllClaims, getAllClaimsAxiosVersion, getClaimById, searchClaimsAxiosVesrion } from "../../data/DataFunctions";
 
-import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Search from "../Header/Search";
+import { UserContext } from "../../contexts/UserContext";
+import { useContext, useEffect, useState } from "react";
 
 
-const ClaimsTable = () => {
+const ClaimsTable = (props) => {
 
-    const claimData = getAllClaims();
-    
     const [claims, setClaims] = useState([]);
 
-    let[searchParams,setSearchParams] = useSearchParams();
-
-    const searchTerm = searchParams.get("search");
-    console.log(searchTerm);
+    let [searchParams, setSearchParams] = useSearchParams();
+    const context = useContext(UserContext);
 
     useEffect(() => {
-        loadClaim(searchTerm);
+        const searchTerm = searchParams.get("search");
+        console.log(searchTerm);
+        if (searchTerm === null) {
+            getAllClaimsAxiosVersion(context.user.name, context.user.password).then((response) => {
+                console.log("response", response);
+                setClaims(response.data);
+                loadClaim(searchTerm);
+            });
+        }
+        else
+            searchClaimsAxiosVesrion(context.user.name, context.user.password, searchTerm).then((response) => {
+                console.log("response", response);
+                setClaims(response.data);
+            });
     }, [searchParams]);
 
+
+
     const loadClaim = (searchTerm) => {
-        const claim = claimData.filter((claim) => {
+        const claim = claims.filter((claim) => {
             return (
-                claim.First_name.toLowerCase().includes(searchTerm.toLowerCase())
+                claim.fullName.toLowerCase().includes(searchTerm.toLowerCase())
             );
         }); setClaims(claim)
     }
@@ -34,18 +46,21 @@ const ClaimsTable = () => {
 
     // setClaims(claimData)
 
-    return (<div>
+    return (<div className="container">
         <table className="table table-bordered text-center table">
             <thead>
+                <tr>
                 <th>Id</th>
-                <th>First_name</th>
-                <th>Surname</th>
-                <th>emailAddress</th>
-                <th>insuranceType</th>
-                <th>coverType</th>
-                <th>Amount</th>
-                <th>ClaimInfo</th>
-                <th>Claim Status </th>
+                <th>policy Number:</th>
+                <th>Full Name:</th>
+                <th>Insurance Type:</th>
+                <th>Claim Amount:</th>
+                <th>Claim Reason:</th>
+                <th>Claim Info:</th>
+                <th>Claim Status:</th>
+                <th>Claim Date:</th>
+                <th>View Details:</th>
+                </tr>
             </thead>
             <tbody>
                 {claims.map((claim, index) => {
@@ -54,14 +69,14 @@ const ClaimsTable = () => {
                         <ClaimsRow
                             key={index}
                             id={claim.id}
-                            First_name={claim.First_name}
-                            surname={claim.surname}
-                            emailAddress={claim.emailAddress}
+                            policyNumber={claim.policyNumber}
+                            fullName={claim.fullName}
                             insuranceType={claim.insuranceType}
-                            coverType={claim.coverType}
                             amount={claim.amount}
+                            claimReason={claim.claimReason}
                             claimInfo={claim.claimInfo}
                             claimStatus={claim.claimStatus}
+                            claimDate={claim.claimDate}
                         />
                     );
                 })}

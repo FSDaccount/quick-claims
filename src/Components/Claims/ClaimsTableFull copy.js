@@ -1,34 +1,29 @@
 import ClaimsRow from "./ClaimsRow";
 import './Claims.css';
-import {getAllClaimsAxiosVersion } from "../../data/DataFunctions";
-
-import { useContext, useEffect, useState } from "react";
+import { getAllClaims, getAllClaimsAxiosVersion, getAllClaimsFetchVersion } from "../../data/DataFunctions";
+import { claimData } from "../../data/DataFunctions";
+import { useEffect, useState } from "react";
 import { useSearchParams } from 'react-router-dom';
 import { Button } from "bootstrap";
-import { UserContext } from "../../contexts/UserContext";
 
 
 const ClaimsTableFull = (props) => {
 
     const [claims, setClaims] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const [uniqueClaimStatus, setUniqueClaimStatus] = useState([]);
-    const context = useContext(UserContext);
+
     const [searchParams, setSearchParams] = useSearchParams();
 
-
     useEffect(() => {
-        getAllClaimsAxiosVersion(context.user.name,context.user.password).then((response) => {
-            console.log("response",response);
+        getAllClaimsAxiosVersion().then((response) => {
             setClaims(response.data);
-          
+            console.log(response.data);
             const allclaimStatus = response.data.map(claim => claim.claimStatus);
             setUniqueClaimStatus(allclaimStatus.filter(
                 (claimStatus, index) => allclaimStatus.indexOf(claimStatus) === index));
             //         setselectedClaimStatus(uniqueClaimStatus[0]);
             console.log(uniqueClaimStatus);
-        })
-        .catch((error) => {
-            console.log(error, "error");
         })
     }, []);
 
@@ -65,15 +60,22 @@ const ClaimsTableFull = (props) => {
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>policy Number:</th>
-                    <th>Full Name:</th>
-                    <th>Insurance Type:</th>
-                    <th>Claim Amount:</th>
-                    <th>Claim Reason:</th>
-                    <th>Claim Info:</th>
-                    <th>Claim Status:</th>
-                    <th>Claim Date:</th>             
-                    <th>View Details:</th>
+                    <th>policy_Number</th>
+                    <th>Full_name</th>
+                    <th>insurnceType</th>
+                    <th>coverType</th>
+                    <th>amount</th>
+                    <th>ClaimReason</th>
+                    <th>ClaimInfo</th>
+                    <th>ClaimStatus</th>
+                    <th>ClaimDate</th>
+                    <th>Address</th>
+                    <th>CarMake</th>
+                    <th>CarModel</th>
+                    <th>YearOfManufacture</th>
+                    <th>TypeOfAnimal</th>
+                    <th>BreedAnimal</th>
+                    <th>View details</th>
                 </tr>
             </thead>
             <tbody>
@@ -86,19 +88,21 @@ const ClaimsTableFull = (props) => {
                             policyNumber={claim.policyNumber}
                             fullName={claim.fullName}
                             insuranceType={claim.insuranceType}
+                            coverType={claim.coverType}
                             amount={claim.amount}
                             claimReason={claim.claimReason}
                             claimInfo={claim.claimInfo}
                             claimStatus={claim.claimStatus}
                             claimDate={claim.claimDate}
-                        
-                            claimNotes={claim.claimNotes}
+                            address={claim.address}
+                            carMake={claim.carMake}
+                            carModel={claim.carModel}
+                            yearOfManufacture={claim.yearOfManufacture}
+                            typeOfAnimal={claim.typeOfAnimal}
+                            breedAnimal={claim.breedAnimal}
                         />
                     );
-                   
-                },
-                 <Button>View</Button>
-                 )}
+                }, <Button>View</Button>)}
             </tbody>
         </table>
     </div>)

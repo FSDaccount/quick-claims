@@ -1,19 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-
+import 'bootstrap/dist/js/bootstrap.js';
+import 'bootstrap/js/dist/dropdown';
+import $ from 'jquery';
+import Popper from 'popper.js';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
+  <React.StrictMode> 
     <App />
-    </BrowserRouter>
+   
   </React.StrictMode>
 );
 

@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+  width: auto;
 }
 
 .App-logo {
@@ -13,6 +15,36 @@
   }
 }
 
+.header-text{
+ 
+  text-align: center;
+  font-size: 2em;
+  color: #3f5787;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+.container {
+  width: 1140px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  background-color: whitesmoke;
+}
+
+.header-container {
+  width: 1140px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  background-color: white;
+}
+
+@media (min-width: 992px) {
+  .container.lg {
+    width: 1140px;
+  }
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -37,4 +69,48 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* 
+.searchBox {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2em;
+} */
+
+/* .searchBox label, input, button {
+  margin: 10px;
+} */
+
+
+.home{
+  padding: 100px;
+  margin-left:  100px;
+  margin-right: 100px;
+
+}
+
+.thumb-post img {
+  object-fit: none; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  width: 100%;
+  max-height: 250px;
+  margin-bottom: 1rem;
+}
+
+.img{
+  object-fit: cover;
+  width: 350px;
+  height: 300px;
+}
+
+.table{
+  margin-left:  10px;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.title{
+  text-align: left;
+ 
 }

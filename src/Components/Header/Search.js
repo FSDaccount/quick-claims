@@ -1,12 +1,9 @@
 import './WebHeader.css';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import ClaimsTable from '../Claims/ClaimsTable';
 const Search = (props) => {
 
-    const [searchInput, setSearchInput] = useState("");
     const [valid, setValid] = useState(true);
-    const [touched, setTouched] = useState(false);
     const navigate = useNavigate()
 
     // const handleChange  = (event) => {
@@ -35,13 +32,16 @@ const Search = (props) => {
     //   };
 
     return (
-        <div className="searchBox">
-             <form className='search' onSubmit={handleSubmit}>
-               <input id="search" type="text" placeholder="search here"
-                style ={{ border: valid ? "1px solid #000" : "2px solid #f00" }} />
-                <button type="submit" >Search</button> 
-             </form> 
+      <form className='search m-2' onSubmit={handleSubmit}>
+      <div className='d-flex'>
+        <div style={{marginRight : "10px"}}>
+          <input id="search" type="text" placeholder="Search for a claim here" className="form-control m-2" style={{ border: valid ? "1px solid #000" : "2px solid #f00" }} />
         </div>
+        <div>
+          <button className="btn btn-outline-success m-2" type="submit">Search</button>
+        </div>
+      </div>
+    </form>
     );
 }
 
